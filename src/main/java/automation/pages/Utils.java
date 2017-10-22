@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utils extends BasePage {
+    static WebDriverWait wait;
 	public static boolean isElementPresent(By element) {
 		return driver.findElement(element).isDisplayed();
 		
@@ -23,7 +24,7 @@ public static void scrollbyY(WebElement elementlocator) {
 	
 }
 	public static void waitForElementVisible(WebElement element, int time) {
-		WebDriverWait wait = new WebDriverWait(driver,time);
+		wait = new WebDriverWait(driver,time);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 

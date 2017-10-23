@@ -3,18 +3,30 @@ package automation;
 import automation.pages.ContactUsPage;
 import automation.pages.HomePage;
 import automation.pages.SigninPage;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
 
 
 public class HomePageTests extends BaseTests {
-	
+	//TestData
+	String email="anugu.archana@gmail.com";
+	String filePath="C:\\Users\\sridhar\\Desktop\\mon.jpg";
 	@Test
 	public void verifyContactUs() {
 	ContactUsPage contactus=PageFactory.initElements(driver,ContactUsPage.class);
 	HomePage homepage=PageFactory.initElements(driver,HomePage.class);
     homepage.contactUsLinkPresence();
+		Assert.assertTrue(contactus.isUserOnContactPage());
+		contactus.setSubjectHeading();
+		contactus.setMail(email);
+		contactus.setOrderReference();
+		contactus.setFileUpload(filePath);
+		contactus.setMessage();
+		contactus.setSubmitMessage();
+		Assert.assertEquals(contactus.getConfirmationMessage(),"Your message has been successfully sent to our team.");
+
 	}
 	
 	@Test

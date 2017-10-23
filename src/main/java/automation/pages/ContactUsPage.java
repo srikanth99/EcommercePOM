@@ -31,6 +31,7 @@ public class ContactUsPage extends BasePage {
 	@FindBy(xpath = "//div[@id='center_column']/p")
 	WebElement confirmationMessage;
 
+	public ContactUsPage(){ PageFactory.initElements(driver,this); }
 
 	public void setSubjectHeading(){
 		Utils.selectFromList(subjectHeading,"Customer service");

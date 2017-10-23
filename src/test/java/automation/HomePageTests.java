@@ -13,20 +13,22 @@ public class HomePageTests extends BaseTests {
 	//TestData
 	String email="anugu.archana@gmail.com";
 	String filePath="C:\\Users\\sridhar\\Desktop\\mon.jpg";
+
+    //Creating object for Reusable function classes
+    HomePage homePage=new HomePage();
+    ContactUsPage contactUsPage=new ContactUsPage();
+
 	@Test
 	public void verifyContactUs() {
-	ContactUsPage contactus=PageFactory.initElements(driver,ContactUsPage.class);
-	HomePage homepage=PageFactory.initElements(driver,HomePage.class);
-    homepage.contactUsLinkPresence();
-		Assert.assertTrue(contactus.isUserOnContactPage());
-		contactus.setSubjectHeading();
-		contactus.setMail(email);
-		contactus.setOrderReference();
-		contactus.setFileUpload(filePath);
-		contactus.setMessage();
-		contactus.setSubmitMessage();
-		Assert.assertEquals(contactus.getConfirmationMessage(),"Your message has been successfully sent to our team.");
-
+        homePage.navigateToContactUsPage();
+        Assert.assertTrue(contactUsPage.isUserOnContactPage());
+        contactUsPage.setSubjectHeading();
+        contactUsPage.setMail(email);
+        contactUsPage.setOrderReference();
+        contactUsPage.setFileUpload(filePath);
+        contactUsPage.setMessage();
+        contactUsPage.setSubmitMessage();
+        Assert.assertEquals(contactUsPage.getConfirmationMessage(),"Your message has been successfully sent to our team.");
 	}
 	
 	@Test

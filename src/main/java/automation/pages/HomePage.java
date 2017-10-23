@@ -4,9 +4,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
-	
+	@FindBy(id="contact-link")
+	WebElement clickOnContactUs;
 	@FindBy(xpath="//*[@class='login']")
 	WebElement signinbtn;
 	@FindBy(xpath="//*[@title='Contact Us']")
@@ -28,17 +30,19 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="html/body/div[1]/div[2]/div/div[3]/div[2]/div[1]/div[2]/form/button")
 	WebElement compareBtn;
 	
+
+	public HomePage(){
+		PageFactory.initElements(driver,this);
+	}
+
+	public void navigateToContactUsPage(){
+		clickOnContactUs.click();
+	}
 	//for a valid user name and password who already registered
 	public void signin() {
-	signinbtn.click();	
+		signinbtn.click();
 	}
-	
-	public void contactUsLinkPresence() {
-		contactuslink.isEnabled();
-		contactuslink.click();
-		/*boolean res =contactpage.contactUsPageTitile.isDisplayed();
-		assertTrue(res);*/
-		}
+
 	public void search(String itemname) {
 		searchBox.sendKeys(itemname);
 		searchclickbtn.click();

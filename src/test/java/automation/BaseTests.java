@@ -13,7 +13,8 @@ public class BaseTests extends BasePage {
 		
 		}
 	@AfterClass
-	public static void closedown() {
+	public static void closedown() throws InterruptedException {
+		Thread.sleep(10000);
 		BasePage.closebrowser();
 	}
 	

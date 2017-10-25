@@ -3,11 +3,17 @@ package automation.pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.junit.Assert.assertTrue;
+
 public class HomePage extends BasePage {
-	
+	@FindBy(xpath="//div[6]/ul/li[2]/a")
+	WebElement dressesLink;
+	@FindBy(xpath="html/body/div[1]/div[1]/header/div[3]/div/div/div[6]/ul/li[2]/ul/li[3]/a")
+	WebElement summerDresesLink;
 	@FindBy(xpath="//*[@class='login']")
 	WebElement signinbtn;
 	@FindBy(xpath="//*[@title='Contact Us']")
@@ -31,6 +37,19 @@ public class HomePage extends BasePage {
 	public HomePage(){
 		PageFactory.initElements(driver,this);
 	}
+
+
+	public void dresses(){
+		Utils.waitForElementVisible(dressesLink,5);
+		Actions act= new Actions(driver);
+		act.moveToElement(dressesLink).perform();
+		act.moveToElement(summerDresesLink);
+		act.click();
+		act.perform();
+	}
+	public void clickDressesLink(){
+		dressesLink.click();
+	}
 	//for a valid user name and password who already registered
 	public void signin() {
 	signinbtn.click();	
@@ -39,15 +58,14 @@ public class HomePage extends BasePage {
 	public void contactUsLinkPresence() {
 		contactuslink.isEnabled();
 		contactuslink.click();
-		/*boolean res =contactpage.contactUsPageTitile.isDisplayed();
-		assertTrue(res);*/
+
 		}
 	public void search(String itemname) {
-		searchBox.sendKeys(itemname);
+	searchBox.sendKeys(itemname);
 		searchclickbtn.click();
 		boolean res1=Utils.isElementPresent(By.xpath("//*[@class='heading-counter']"));
-		Assert.assertTrue(res1);
-			
+		assertTrue(res1);
+
 	}
 	
 	public void gridVeiw() {
@@ -62,6 +80,7 @@ public class HomePage extends BasePage {
 	Utils.selectFromList(sortBY,text);
 	
 	}
+
 	public void addToCompare() throws Exception {
 		
 		addTocomparebtnForitem4.click();

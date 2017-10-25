@@ -10,7 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Utils extends BasePage {
     static WebDriverWait wait;
 
-		
+	public static boolean isElementPresent(By element) {
+		return driver.findElement(element).isDisplayed();
+	}
 
 	public static void selectFromList(WebElement element,String text) {
 		Select select = new Select(element);

@@ -12,10 +12,10 @@ public class BaseTests extends BasePage {
 		BasePage.startBrowser();
 		
 		}
-	@AfterClass
+	/*@AfterClass
 	public static void closedown() {
 		BasePage.closebrowser();
-	}
+	}*/
 	
 
 }

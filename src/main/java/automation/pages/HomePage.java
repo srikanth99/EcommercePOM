@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
-	@FindBy(id="contact-link")
+	@FindBy(css="#contact-link")
 	WebElement clickOnContactUs;
 	@FindBy(xpath="//*[@class='login']")
 	WebElement signinbtn;

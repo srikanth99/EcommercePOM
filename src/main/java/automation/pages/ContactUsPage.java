@@ -5,27 +5,27 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ContactUsPage extends BasePage {
-	@FindBy(xpath="//*[@class='page-heading bottom-indent']")
+	@FindBy(xpath="//h1[@class='page-heading bottom-indent']")
 	WebElement contactUsPageTitile;
 	@FindBy(xpath="//div[@id='center_column']/h1")
 	WebElement contactPageHeader;
 
-	@FindBy(xpath="//*[@id='id_contact']")
+	@FindBy(css="#id_contact")
 	WebElement subjectHeading;
 
-	@FindBy(id="email")
+	@FindBy(css="#email")
 	WebElement mail;
 
-	@FindBy(id="id_order")
+	@FindBy(css="#id_order")
 	WebElement orderReference;
 
-	@FindBy(id="fileUpload")
+	@FindBy(css="#fileUpload")
 	WebElement fileUpload;
 
-	@FindBy(id="submitMessage")
+	@FindBy(css="#submitMessage")
 	WebElement submitMessage;
 
-	@FindBy(id="message")
+	@FindBy(css="#message")
 	WebElement message;
 
 	@FindBy(xpath = "//div[@id='center_column']/p")
@@ -33,8 +33,8 @@ public class ContactUsPage extends BasePage {
 
 	public ContactUsPage(){ PageFactory.initElements(driver,this); }
 
-	public void setSubjectHeading(){
-		Utils.selectFromList(subjectHeading,"Customer service");
+	public void setSubjectHeading(String selectSubjectHeading){
+		Utils.selectFromList(subjectHeading,selectSubjectHeading);
 	}
 
 	public boolean isUserOnContactPage(){
@@ -45,8 +45,8 @@ public class ContactUsPage extends BasePage {
 		mail.sendKeys(email);
 	}
 
-	public void setOrderReference(){
-		orderReference.sendKeys("KYJUXWFXQ - 10/09/2017");
+	public void setOrderReference(String settingOrderReference){
+		orderReference.sendKeys(settingOrderReference);
 	}
 	public void setFileUpload(String filePath){
 

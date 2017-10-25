@@ -11,8 +11,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePageTests extends BaseTests {
 	//TestData
+    String selectSubjectHeading="Customer service";
 	String email="anugu.archana@gmail.com";
+	String settingorderReference="KYJUXWFXQ - 10/09/2017";
 	String filePath="C:\\Users\\sridhar\\Desktop\\mon.jpg";
+	String message="Your message has been successfully sent to our team.";
 
     //Creating object for Reusable function classes
     HomePage homePage=new HomePage();
@@ -22,13 +25,13 @@ public class HomePageTests extends BaseTests {
 	public void verifyContactUs() {
         homePage.navigateToContactUsPage();
         Assert.assertTrue(contactUsPage.isUserOnContactPage());
-        contactUsPage.setSubjectHeading();
+        contactUsPage.setSubjectHeading(selectSubjectHeading);
         contactUsPage.setMail(email);
-        contactUsPage.setOrderReference();
+        contactUsPage.setOrderReference(settingorderReference);
         contactUsPage.setFileUpload(filePath);
         contactUsPage.setMessage();
         contactUsPage.setSubmitMessage();
-        Assert.assertEquals(contactUsPage.getConfirmationMessage(),"Your message has been successfully sent to our team.");
+        Assert.assertEquals(contactUsPage.getConfirmationMessage(),message);
 	}
 	
 	@Test

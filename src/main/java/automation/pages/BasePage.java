@@ -11,10 +11,12 @@ public class BasePage {
 	public static String url="http://automationpractice.com/index.php";
 	
 	public static void startBrowser() {
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Neerav\\Downloads/chromedriver.exe");
        driver = new ChromeDriver();
-       driver.get(url);
-       driver.manage().timeouts().implicitlyWait(10000,TimeUnit.SECONDS);
+       driver.manage().window().maximize();
+		driver.get(url);
+      // driver.manage().timeouts().implicitlyWait(10000,TimeUnit.SECONDS);
+
 		
 	}
 	public static void closebrowser() {

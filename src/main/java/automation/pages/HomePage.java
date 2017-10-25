@@ -4,8 +4,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
+	public HomePage(){PageFactory.initElements(driver,this);}
 	
 	@FindBy(xpath="//*[@class='login']")
 	WebElement signinbtn;
@@ -27,6 +29,17 @@ public class HomePage extends BasePage {
 	WebElement addTocomparebtnForitem4;
 	@FindBy(xpath="html/body/div[1]/div[2]/div/div[3]/div[2]/div[1]/div[2]/form/button")
 	WebElement compareBtn;
+	@FindBy(xpath = "//*[@id='block_top_menu']/ul/li[1]/a")
+	WebElement women_Link;
+	@FindBy(id = "search_query_top")
+	WebElement search;
+	@FindBy(xpath = "//*[@id='searchbox']/button")
+	WebElement searchButton;
+	@FindBy(xpath = "//*[@id='homefeatured']/li[1]/div/div[1]/div/a[1]/img")
+	WebElement product1;
+	@FindBy(xpath = "//*[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[1]/span")
+	WebElement addToCartProduct1;
+
 	
 	//for a valid user name and password who already registered
 	public void signin() {
@@ -42,8 +55,8 @@ public class HomePage extends BasePage {
 	public void search(String itemname) {
 		searchBox.sendKeys(itemname);
 		searchclickbtn.click();
-		boolean res1=Utils.isElementPresent(By.xpath("//*[@class='heading-counter']"));
-		Assert.assertTrue(res1);
+		//boolean res1=Utils.isElementPresent(By.xpath("//*[@class='heading-counter']"));
+		//Assert.assertTrue(res1);
 			
 	}
 	
@@ -65,9 +78,19 @@ public class HomePage extends BasePage {
 		addTocomparebtnForitem5.click();
 		Thread.sleep(1000);
 		compareBtn.click();
-		boolean res=Utils.isElementPresent(By.xpath("//*[@class='page-heading']"));
-		Assert.assertTrue(res);
+	//	boolean res=Utils.isElementPresent(By.xpath("//*[@class='page-heading']"));
+	//	Assert.assertTrue(res);
 	
+	}
+	public void waitForItem(){
+		Utils.waitForElementVisible(product1,3000);
+	}
+	public void setProduct1(){
+		Utils.mouseHover(product1);
+	}
+	public void setAddToCartProduct1(){
+		addToCartProduct1.click();
+
 	}
 	
 	

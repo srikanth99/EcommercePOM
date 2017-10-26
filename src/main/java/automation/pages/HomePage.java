@@ -29,7 +29,8 @@ public class HomePage extends BasePage {
 	WebElement addTocomparebtnForitem4;
 	@FindBy(xpath="html/body/div[1]/div[2]/div/div[3]/div[2]/div[1]/div[2]/form/button")
 	WebElement compareBtn;
-	
+	@FindBy(xpath = "//div[@id='block_top_menu']/ul/li[2]/a")
+	WebElement navigateToDressesPage;
 
 	public HomePage(){
 		PageFactory.initElements(driver,this);
@@ -37,6 +38,10 @@ public class HomePage extends BasePage {
 
 	public void navigateToContactUsPage(){
 		clickOnContactUs.click();
+	}
+
+	public void setNavigateToDressesPage(){
+		navigateToDressesPage.click();
 	}
 	//for a valid user name and password who already registered
 	public void signin() {

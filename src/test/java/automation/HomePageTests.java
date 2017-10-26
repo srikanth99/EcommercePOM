@@ -13,6 +13,9 @@ public class HomePageTests extends BaseTests {
 	int timetowait=3000;
 	String emailExisting="mona123@gmail.com";
 	String passwordExisting="secret123";
+	String friendName="Archana";
+	String friendEmail="Archana123@gmail.com";
+	String expectedMsg="Your e-mail has been sent successfully";
     //Creating objects
 	HomePage homePage=new HomePage();
 	ProceedToCheckOutPage proceedToCheckOutPage=new ProceedToCheckOutPage();
@@ -21,6 +24,9 @@ public class HomePageTests extends BaseTests {
 	AddressPage addressPage=new AddressPage();
 	ShippingPage shippingPage=new ShippingPage();
 	PaymentMethodPage paymentMethodPage=new PaymentMethodPage();
+	WomenPage womenPage=new WomenPage();
+	TopsPage topsPage=new TopsPage();
+	MorePage morePage=new MorePage();
 	@Test
 	public void verifyContactUs() {
 	ContactUsPage contactus=PageFactory.initElements(driver,ContactUsPage.class);
@@ -65,6 +71,31 @@ public class HomePageTests extends BaseTests {
 		Assert.assertTrue(paymentMethodPage.isUserOnPaymentMethodPage());
 
 	}
+	@Test
+	public void verifyUserCanReferAnItemToFriend(){
+		homePage.waitForItem();
+		homePage.setProduct1();
+		homePage.setMore1();
+		morePage.setSendToAFriend();
+		morePage.isUserOnSendToFriendPage();
+		morePage.setFriendName(friendName);
+		morePage.setFriendEmail(friendEmail);
+		morePage.setSend_button();
+		//morePage.setOkButton();
+		//Assert.assertEquals(morePage.getActualMsg(),expectedMsg);
+
+
+	}
+	@Test
+	public void verifyUserCanNavigateToTopsPageFromHomePage(){
+		homePage.goToWomenPage();
+		System.out.println(womenPage.isUserOnWomenPage());
+		Assert.assertTrue(womenPage.isUserOnWomenPage());
+		womenPage.goToTopsPage();
+		System.out.println(topsPage.isUserOnTopsPage());
+		Assert.assertTrue(topsPage.isUserOnTopsPage());
+	}
+
 
 	}
 

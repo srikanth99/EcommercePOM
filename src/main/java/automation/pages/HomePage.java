@@ -39,6 +39,8 @@ public class HomePage extends BasePage {
 	WebElement product1;
 	@FindBy(xpath = "//*[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[1]/span")
 	WebElement addToCartProduct1;
+	@FindBy(xpath = "//*[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[2]/span")
+	WebElement more1;
 
 	
 	//for a valid user name and password who already registered
@@ -91,6 +93,12 @@ public class HomePage extends BasePage {
 	public void setAddToCartProduct1(){
 		addToCartProduct1.click();
 
+	}
+	public void goToWomenPage(){
+		women_Link.click();
+	}
+	public void setMore1(){
+		more1.click();
 	}
 	
 	

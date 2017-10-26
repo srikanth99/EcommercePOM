@@ -11,7 +11,7 @@ public class BasePage {
 	public static String url="http://automationpractice.com/index.php";
 	
 	public static void startBrowser() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Neerav\\Downloads/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/Newchromedriver.exe");
        driver = new ChromeDriver();
        driver.manage().window().maximize();
 		driver.get(url);

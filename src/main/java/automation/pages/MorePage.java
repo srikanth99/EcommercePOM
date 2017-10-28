@@ -37,6 +37,9 @@ public class MorePage extends BasePage {
     public boolean isUserOnSendToFriendPage(){
         return Utils.isElementPresent(sendFriendHeader);
     }
+    public void waitForActualConfirmationMsg(){
+        Utils.waitForElementVisible(actualMsg,3000);
+    }
     public String getActualMsg(){
         return actualMsg.getText();
     }

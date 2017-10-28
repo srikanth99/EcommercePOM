@@ -14,7 +14,7 @@ public class DressesPage extends BasePage {
     @FindBy(xpath = "//div[@id='center_column']/ul/li[3]/div/div/div[3]/div/div[3]/div[2]/a")
     WebElement yellowDress_Compare;
     @FindBy(xpath = "//*[@id='center_column']/div[3]/div[2]/form/button")
-    WebElement compare;
+    WebElement compare,explicitWaitClickableToCompare;
     @FindBy(xpath = "//*[text()='Discover our stores']")
     WebElement discoverStores;
 
@@ -32,6 +32,10 @@ public class DressesPage extends BasePage {
     }
     public void setYellowDress_Compare(){
         yellowDress_Compare.click();
+    }
+
+    public void setExplicitWaitClickableToCompare(){
+        Utils.waitForElementClickable(explicitWaitClickableToCompare);
     }
     public void setCompare(){
         compare.click();

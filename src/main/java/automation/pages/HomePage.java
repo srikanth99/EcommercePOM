@@ -48,14 +48,14 @@ public class HomePage extends BasePage {
 		signinbtn.click();
 	}
 
-	public void search(String itemname) {
+	/*public void search(String itemname) {
 		searchBox.sendKeys(itemname);
 		searchclickbtn.click();
 		boolean res1=Utils.isElementPresent(By.xpath("//*[@class='heading-counter']"));
 		Assert.assertTrue(res1);
 			
-	}
-	
+	}*/
+
 	public void gridVeiw() {
 		GridVeiwImg.click();
 		
@@ -68,7 +68,7 @@ public class HomePage extends BasePage {
 	Utils.selectFromList(sortBY,text);
 	
 	}
-	public void addToCompare() throws Exception {
+	/*public void addToCompare() throws Exception {
 		
 		addTocomparebtnForitem4.click();
 		addTocomparebtnForitem5.click();
@@ -77,7 +77,7 @@ public class HomePage extends BasePage {
 		boolean res=Utils.isElementPresent(By.xpath("//*[@class='page-heading']"));
 		Assert.assertTrue(res);
 	
-	}
+	}*/
 	
 	
 

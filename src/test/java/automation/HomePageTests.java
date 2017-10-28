@@ -34,7 +34,7 @@ public class HomePageTests extends BaseTests {
         Assert.assertEquals(contactUsPage.getConfirmationMessage(),message);
 	}
 	
-	@Test
+	/*@Test
     public void verifySignIn() throws Exception {
 	HomePage homepage=PageFactory.initElements(driver,HomePage.class);
 	SigninPage signin=PageFactory.initElements(driver,SigninPage.class);
@@ -46,7 +46,7 @@ public class HomePageTests extends BaseTests {
 	homepage.sortby("Price: Lowest first");
 	homepage.addToCompare();
 	}  
-	    
+	 */
 		
 	}
 

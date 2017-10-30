@@ -49,7 +49,7 @@ public class HomePageTests extends BaseTests {
 	}
 
 	@Test
-	 public void verifyUserCanAddAnItemSuccessfully(){
+	 public void verifyUserCanAddAnItemAndProceedToCheckOutSuccessfully(){
 		homePage.waitForItem();
 		homePage.setProduct1();
 		homePage.setAddToCartProduct1();
@@ -81,8 +81,10 @@ public class HomePageTests extends BaseTests {
 		morePage.setFriendName(friendName);
 		morePage.setFriendEmail(friendEmail);
 		morePage.setSend_button();
-		//morePage.setOkButton();
-		//Assert.assertEquals(morePage.getActualMsg(),expectedMsg);
+		morePage.waitForActualConfirmationMsg();
+		System.out.println(morePage.getActualMsg());
+		Assert.assertEquals(morePage.getActualMsg(),expectedMsg);
+		morePage.setOkButton();
 
 
 	}

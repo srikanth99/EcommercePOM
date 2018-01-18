@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 	
@@ -27,7 +28,9 @@ public class HomePage extends BasePage {
 	WebElement addTocomparebtnForitem4;
 	@FindBy(xpath="html/body/div[1]/div[2]/div/div[3]/div[2]/div[1]/div[2]/form/button")
 	WebElement compareBtn;
-	
+	public HomePage(){
+		PageFactory.initElements(driver,this);
+	}
 	//for a valid user name and password who already registered
 	public void signin() {
 	signinbtn.click();	

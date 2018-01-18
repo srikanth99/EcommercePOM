@@ -18,8 +18,7 @@ public class Utils extends BasePage {
 	select.selectByVisibleText(text);;
 	}
 	
-public static void scrollbyY(WebElement elementlocator) {
-	WebElement ele=driver.findElement((By) elementlocator);
+public static void scrollbyY(WebElement ele) {
 	((JavascriptExecutor)driver).executeScript("window.scrollTo(0," + ele.getLocation().y + ")");
 	
 }
@@ -27,5 +26,15 @@ public static void scrollbyY(WebElement elementlocator) {
 		wait = new WebDriverWait(driver,time);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
+	public static void selectFromListByValue(WebElement element,String value) {
+		Select select = new Select(element);
+		select.selectByVisibleText(value);
 
+	}
+	public static void selectFromList2(By element,String val) {
+		Select select = new Select(driver.findElement(element));
+		select.selectByValue(val);;
+	}
 }
+
+

@@ -18,7 +18,7 @@ public class BbcNews {
         String title=driver.getTitle();
         System.out.println("this is page tille "+title);
         driver.close();
-        System.out.println("closing -------");
+        System.out.println("closing this website");
 
     }
 }
